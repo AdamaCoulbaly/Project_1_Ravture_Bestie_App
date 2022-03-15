@@ -107,7 +107,7 @@ fun InfoScreen(){
             OutlinedTextField(value = FirstName.value, onValueChange = {FirstName.value=it},
                 label = {Text(text="First Name", color = Color.White, style = TextStyle(fontWeight = FontWeight.Bold, letterSpacing = TextUnit.Unspecified),
                     fontSize = TextUnit.Unspecified)},
-                placeholder = {Text(text="", color = Color.White, style = TextStyle(fontWeight = FontWeight.Bold, letterSpacing = TextUnit.Unspecified,color = Color.White),
+                placeholder = {Text(text="First Name", color = Color.White, style = TextStyle(fontWeight = FontWeight.Bold, letterSpacing = TextUnit.Unspecified,color = Color.White),
                     fontSize = TextUnit.Unspecified)},
                 singleLine = true,
                 modifier = Modifier.fillMaxWidth(0.8f))
