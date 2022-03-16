@@ -86,7 +86,7 @@ fun TopBar(){
     ) {
         TopAppBar(
             title={Text(
-                text="BESTIE :)", fontWeight = FontWeight.Bold,
+                text="BESTIE", fontWeight = FontWeight.Bold,
                 color = Color.White,
                 fontSize = 25.sp)
             },

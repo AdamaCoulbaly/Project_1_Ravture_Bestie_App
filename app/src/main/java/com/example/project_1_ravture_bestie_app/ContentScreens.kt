@@ -383,3 +383,4 @@ fun SignUpScreen() {
 fun SignUpScreenPreview() {
     SignUpScreen()
 }
+
