@@ -10,9 +10,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -45,6 +44,7 @@ class ContentScreens : ComponentActivity() {
     }
 }
 
+
 @Composable
 fun HomeScreen(){
     Column( horizontalAlignment=Alignment.CenterHorizontally,
@@ -52,7 +52,7 @@ fun HomeScreen(){
             .fillMaxWidth()
             .fillMaxHeight()
             .padding(0.dp)
-        //.background(colorResource(id = R.color.colorPrimary))
+            .background(colorResource(id = R.color.white))
         //.wrapContentSize(Alignment.Center)
     ) {
         Card(
@@ -74,7 +74,7 @@ fun HomeScreen(){
 
     }
 }
-@Preview(showBackground = true)
+@Preview(showSystemUi = true)
 @Composable
 fun HomeScreenPreview(){
     HomeScreen()
@@ -90,8 +90,7 @@ fun InfoScreen(){
     Column(
         modifier= Modifier
             .fillMaxSize()
-            //.background(colorResource(id = R.color.purple_700))
-            .background(Color.DarkGray)
+            .background(colorResource(id = R.color.BestieSecondaryBackground))
             .wrapContentSize(Alignment.Center)
     ){
         Text(
@@ -129,22 +128,59 @@ fun InfoScreen(){
                 modifier = Modifier.fillMaxWidth(0.8f))
             Spacer(modifier = Modifier.padding(10.dp))
             Button(onClick = {},
+                colors = ButtonDefaults.buttonColors(
+                    backgroundColor = Color.White,
+                    contentColor = Color.Red),
                 modifier = Modifier
                     .fillMaxWidth(0.8f)
                     .height(50.dp)
-                    .background(Color.Blue)
+                    .background(Color.Black)
+
             ){
-                Text(text="Submit", color = Color.White, style = TextStyle(fontWeight = FontWeight.Bold, letterSpacing = TextUnit.Unspecified),
+                Text(text="Submit", color = Color.Black, style = TextStyle(fontWeight = FontWeight.Bold, letterSpacing = TextUnit.Unspecified),
                     fontSize = TextUnit.Unspecified)
             }
         }
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showSystemUi=true)
 @Composable
 fun InfoScreenPreview(){
     InfoScreen()
+}
+
+
+//Login Control Method
+fun LoginCheck(userEmail:String,userPassword:String):String{
+    var status:String=""
+    if(userEmail.equals("ada@ada.com")&&userPassword.equals("adama")){
+        status="Login Successful"
+    }else{
+        status="Login UnSuccessful"
+    }
+    return status
+}
+
+//SignUp Method
+fun SignUpSaver(firstName:String, lastName:String,EmailAddress:String, Password:String, Password2:String):String{
+    var regStatus:String=""
+    if(firstName.isEmpty()||firstName.isBlank()){
+        regStatus="First Name is required witn no space"
+    }else if(lastName.isEmpty()||lastName.isBlank()){
+        regStatus="Last Name is required witn no space"
+    }else if(EmailAddress.isEmpty()||EmailAddress.isBlank()){
+        regStatus="Email Address is required witn no space"
+    }else if(Password.isEmpty()||Password.isBlank()){
+        regStatus="Password is required witn no space"
+    }else if(Password2.isEmpty()||Password2.isBlank()){
+        regStatus="Second Password is required witn no space"
+    }else if(Password!=Password2){
+        regStatus="Paswords must be the same"
+    }else{
+        regStatus="SignedUp Successful"
+    }
+        return regStatus
 }
 
 @Composable
@@ -158,13 +194,9 @@ fun SignInScreen(){
     val scrollState= rememberScrollState()
     Column(
         modifier = Modifier
-            .fillMaxWidth()
-            .fillMaxHeight(15.60f)
-            .clip(RoundedCornerShape(30.dp, 0.dp))
-            .background(Color.DarkGray)
-            //.background(colorResource(id = R.color.teal_200))
+            .fillMaxSize()
+            .background(colorResource(id = R.color.BestieSecondaryBackground))
             .wrapContentSize(Alignment.Center)
-            .padding(10.dp)
     ){
         Text(
             text="Sign In",
@@ -174,16 +206,18 @@ fun SignInScreen(){
             textAlign = TextAlign.Center,
             fontSize = 25.sp
         )
+            var emailAddress by rememberSaveable{mutableStateOf("")}
+            var Password by rememberSaveable{mutableStateOf("")}
         Spacer(modifier = Modifier.padding(10.dp))
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            OutlinedTextField(value = emailAddress.value, onValueChange = {emailAddress.value=it},
+            OutlinedTextField(value = emailAddress, onValueChange = {emailAddress=it},
                 label = {Text(text="Email Address", color = Color.White, style = TextStyle(fontWeight = FontWeight.Bold, letterSpacing = TextUnit.Unspecified),
                     fontSize = TextUnit.Unspecified)},
                 placeholder = {Text(text="Email Address", color = Color.White, style = TextStyle(fontWeight = FontWeight.Bold, letterSpacing = TextUnit.Unspecified),
                     fontSize = TextUnit.Unspecified)},
                 singleLine = true,
                 modifier = Modifier.fillMaxWidth(0.8f))
-            OutlinedTextField(value = password.value, onValueChange = {password.value=it},
+            OutlinedTextField(value = Password, onValueChange = {Password=it},
                 trailingIcon = {
                     IconButton(onClick = { /*TODO*/
                         passwordVisibilty.value= !passwordVisibilty.value
@@ -203,17 +237,23 @@ fun SignInScreen(){
                 modifier = Modifier.fillMaxWidth(0.8f)
             )
             Spacer(modifier = Modifier.padding(10.dp))
-            Button(onClick = {},
+
+            //Email and Password Check Button
+            var status by rememberSaveable{mutableStateOf("")}
+            Button(onClick = {status=LoginCheck(emailAddress, Password)},
+                colors = ButtonDefaults.buttonColors(
+                    backgroundColor = Color.White,
+                    contentColor = Color.Red),
                 modifier = Modifier
                     .fillMaxWidth(0.8f)
                     .height(50.dp)
-                    .background(Color.Blue)
-            ){
-                Text(text="Sign in", color = Color.White, style = TextStyle(fontWeight = FontWeight.Bold, letterSpacing = TextUnit.Unspecified),
-                    fontSize = TextUnit.Unspecified)
+                    .background(colorResource(id = R.color.BestieSecondaryBackground))
+            ){  //Text(text = "$status")
+                Text(text="Login", color = Color.Black, style = TextStyle(fontWeight = FontWeight.Bold, letterSpacing = TextUnit.Unspecified),
+                   fontSize = TextUnit.Unspecified)
             }
             Spacer(modifier = Modifier.padding(20.dp))
-            Text(text="", color = Color.White, style = TextStyle(fontWeight = FontWeight.Bold, letterSpacing = TextUnit.Unspecified),
+            Text(text="$status", color = Color.Red, style = TextStyle(fontWeight = FontWeight.Bold, letterSpacing = TextUnit.Unspecified),
                 fontSize = TextUnit.Companion.Unspecified,modifier = Modifier.clickable (onClick = {} ))
             Spacer(modifier = Modifier.padding(20.dp))
 
@@ -221,9 +261,10 @@ fun SignInScreen(){
         }
     }
 }
-@Preview(showBackground = true)
+@Preview(showSystemUi = true)
 @Composable
 fun SignInScreenPreview(){
+    SignInScreen()
 }
 
 @Composable
@@ -241,13 +282,9 @@ fun SignUpScreen() {
 
     Column(
         modifier = Modifier
-            .fillMaxWidth()
-            .fillMaxHeight(15.60f)
-            .clip(RoundedCornerShape(30.dp, 0.dp))
-            .background(Color.DarkGray)
-            //.background(colorResource(id = R.color.teal_200))
+            .fillMaxSize()
+            .background(colorResource(id = R.color.BestieSecondaryBackground))
             .wrapContentSize(Alignment.Center)
-            .padding(10.dp)
     ) {
         Text(
             text="Sign Up", fontWeight = FontWeight.Bold,
@@ -322,12 +359,15 @@ fun SignUpScreen() {
 
             Spacer(modifier = Modifier.padding(10.dp))
             Button(onClick = {},
+                colors = ButtonDefaults.buttonColors(
+                    backgroundColor = Color.White,
+                    contentColor = Color.White),
                 modifier = Modifier
                     .fillMaxWidth(0.8f)
                     .height(50.dp)
-                    .background(Color.Blue)
+                    .background(Color.Black)
             ){
-                Text(text="Sign Up", color = Color.White, style = TextStyle(fontWeight = FontWeight.Bold, letterSpacing = TextUnit.Unspecified),
+                Text(text="Sign Up", color = Color.Black, style = TextStyle(fontWeight = FontWeight.Bold, letterSpacing = TextUnit.Unspecified),
                     fontSize = TextUnit.Companion.Unspecified)
             }
             Spacer(modifier = Modifier.padding(20.dp))
@@ -338,7 +378,7 @@ fun SignUpScreen() {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showSystemUi = true)
 @Composable
 fun SignUpScreenPreview() {
     SignUpScreen()

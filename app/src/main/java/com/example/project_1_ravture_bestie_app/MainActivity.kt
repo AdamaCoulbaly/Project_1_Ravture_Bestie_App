@@ -3,10 +3,17 @@ package com.example.project_1_ravture_bestie_app
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -21,7 +28,18 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MainScreen()
+            Project_1_Ravture_Bestie_AppTheme {
+                // A surface container using the 'background' color from the theme
+                Surface(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(colorResource(id = R.color.BestiePrimaryBackground)),
+                    //color = MaterialTheme.colors.onPrimary
+                ) {
+                    MainScreen()
+                }
+            }
+
         }
     }
 }
@@ -52,6 +70,9 @@ fun Navigation(navController: NavHostController){
         composable(NavigationItem.Info.route){
             InfoScreen()
         }
+        composable(NavigationItem.SignUp.route){
+            SignUpScreen()
+        }
         composable(NavigationItem.SignIn.route){
             SignInScreen()
         }
@@ -60,16 +81,18 @@ fun Navigation(navController: NavHostController){
 
 @Composable
 fun TopBar(){
+    Box( modifier = Modifier
+        .background(colorResource(id = R.color.BestieSecondaryBackground))
+    ) {
         TopAppBar(
             title={Text(
-                    text="BESTIE :)", fontWeight = FontWeight.Bold,
+                text="BESTIE :)", fontWeight = FontWeight.Bold,
                 color = Color.White,
-                //textAlign = TextAlign.Center,
                 fontSize = 25.sp)
-                  },
-            backgroundColor = Color.Gray,
-            contentColor = Color.White
+            },
         )
+    }
+
 }
 
 @Preview(showBackground = true)
@@ -83,12 +106,14 @@ fun BottomNavigationBar(navController: NavController) {
     val items = listOf(
         NavigationItem.Home,
         NavigationItem.Info,
+        NavigationItem.SignUp,
         NavigationItem.SignIn
-        //NavigationItem.SignUp
+
     )
     BottomNavigation(
-        backgroundColor = Color.Black,
-        contentColor = Color.White
+        modifier = Modifier
+            .background(colorResource(id = R.color.BestiePrimaryBackground)),
+            contentColor = Color.White
     ) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentRoute = navBackStackEntry?.destination?.route
