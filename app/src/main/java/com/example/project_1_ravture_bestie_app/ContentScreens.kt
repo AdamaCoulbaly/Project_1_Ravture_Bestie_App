@@ -163,19 +163,19 @@ fun LoginCheck(userEmail:String,userPassword:String):String{
 }
 
 //SignUp Method
-fun SignUpSaver(firstName:String, lastName:String,EmailAddress:String, Password:String, Password2:String):String{
+fun SignUpSave(regFirstName:String, regLastName:String,regEmailAddress:String, regPassword:String, regPassword2:String):String{
     var regStatus:String=""
-    if(firstName.isEmpty()||firstName.isBlank()){
-        regStatus="First Name is required witn no space"
-    }else if(lastName.isEmpty()||lastName.isBlank()){
-        regStatus="Last Name is required witn no space"
-    }else if(EmailAddress.isEmpty()||EmailAddress.isBlank()){
-        regStatus="Email Address is required witn no space"
-    }else if(Password.isEmpty()||Password.isBlank()){
-        regStatus="Password is required witn no space"
-    }else if(Password2.isEmpty()||Password2.isBlank()){
-        regStatus="Second Password is required witn no space"
-    }else if(Password!=Password2){
+    if(regFirstName.isEmpty()||regFirstName.isBlank()){
+        regStatus="First Name is required without blank space"
+    }else if(regLastName.isEmpty()||regLastName.isBlank()){
+        regStatus="Last Name is required without blank space"
+    }else if(regEmailAddress.isEmpty()||regEmailAddress.isBlank()){
+        regStatus="Email Address is required without blank space"
+    }else if(regPassword.isEmpty()||regPassword.isBlank()){
+        regStatus="Password is required without blank space"
+    }else if(regPassword2.isEmpty()||regPassword2.isBlank()){
+        regStatus="Second Password is required with no space"
+    }else if(regPassword!=regPassword2){
         regStatus="Paswords must be the same"
     }else{
         regStatus="SignedUp Successful"
@@ -269,14 +269,14 @@ fun SignInScreenPreview(){
 
 @Composable
 fun SignUpScreen() {
-    val firstName = remember{ mutableStateOf("")}
-    val lastName = remember{ mutableStateOf("")}
-    val Email = remember{ mutableStateOf("")}
-    val password = remember{ mutableStateOf("")}
-    val confirmPassword = remember{ mutableStateOf("")}
+    val firstName = rememberSaveable{ mutableStateOf("")}
+    val lastName = rememberSaveable{ mutableStateOf("")}
+    val Email = rememberSaveable{ mutableStateOf("")}
+    val password = rememberSaveable{ mutableStateOf("")}
+    val confirmPassword = rememberSaveable{ mutableStateOf("")}
 
-    val passwordVisibilty = remember{ mutableStateOf(false)}
-    val confirmationOfPasswordVisibilty = remember{ mutableStateOf(false)}
+    val passwordVisibilty = rememberSaveable{ mutableStateOf(false)}
+    val confirmationOfPasswordVisibilty = rememberSaveable{ mutableStateOf(false)}
 
     val scrollSate= rememberScrollState()
 
@@ -356,9 +356,9 @@ fun SignUpScreen() {
                 visualTransformation = if(confirmationOfPasswordVisibilty.value) VisualTransformation.None
                 else PasswordVisualTransformation()
             )
-
             Spacer(modifier = Modifier.padding(10.dp))
-            Button(onClick = {},
+            var regStatus by rememberSaveable{ mutableStateOf("")}
+            Button(onClick = {regStatus= SignUpSave(firstName.value,lastName.value,Email.value,password.value,confirmPassword.value)},
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = Color.White,
                     contentColor = Color.White),
@@ -371,7 +371,7 @@ fun SignUpScreen() {
                     fontSize = TextUnit.Companion.Unspecified)
             }
             Spacer(modifier = Modifier.padding(20.dp))
-            Text(text="Thank you",color = Color.White, style = TextStyle(fontWeight = FontWeight.Bold, letterSpacing = TextUnit.Unspecified),
+            Text(text="$regStatus",color = Color.White, style = TextStyle(fontWeight = FontWeight.Bold, letterSpacing = TextUnit.Unspecified),
                 fontSize = TextUnit.Companion.Unspecified, modifier = Modifier.clickable (onClick = {} ))
             Spacer(modifier = Modifier.padding(20.dp))
         }
