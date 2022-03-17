@@ -26,6 +26,8 @@ import com.example.project_1_ravture_bestie_app.R
 import com.example.project_1_ravture_bestie_app.model.NavigationDrawerItem
 import com.example.project_1_ravture_bestie_app.model.NavigationItem
 import com.example.project_1_ravture_bestie_app.ui.theme.Project_1_Ravture_Bestie_AppTheme
+import com.example.project_1_ravture_bestie_app.myui.*
+import com.example.project_1_ravture_bestie_app.ui.theme.MyMainScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +41,8 @@ class MainActivity : ComponentActivity() {
                         .background(colorResource(id = R.color.BestiePrimaryBackground)),
                     //color = MaterialTheme.colors.onPrimary
                 ) {
-                    MainScreen()
+                    //MainScreen()
+                    MyMainScreen()
                 }
             }
 
