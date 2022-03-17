@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project_1_Ravture_Bestie_App">
         <activity
+            android:name=".myui.AfterLoginPage"
+            android:exported="false"
+            android:label="@string/title_activity_after_login_page"
+            android:theme="@style/Theme.Project_1_Ravture_Bestie_App" />
+        <activity
             android:name=".myui.ContentScreens"
             android:exported="false"
             android:label="@string/title_activity_content_screens"

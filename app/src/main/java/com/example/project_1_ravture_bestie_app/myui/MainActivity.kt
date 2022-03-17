@@ -41,8 +41,7 @@ class MainActivity : ComponentActivity() {
                         .background(colorResource(id = R.color.BestiePrimaryBackground)),
                     //color = MaterialTheme.colors.onPrimary
                 ) {
-                    //MainScreen()
-                    MyMainScreen()
+                    MainScreen()
                 }
             }
 
