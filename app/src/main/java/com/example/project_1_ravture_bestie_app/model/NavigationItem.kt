@@ -8,3 +8,13 @@ sealed class NavigationItem(var route:String, var icon:Int, var title:String){
     object SignIn: NavigationItem("signin", R.drawable.sigin,"SignIn")
     object SignUp: NavigationItem("signup", R.drawable.sigin,"SignUp")
 }
+
+sealed class NavigationDrawerItem(var route:String, var icon:Int, var title:String){
+    object MyHome: NavigationItem("myHome", R.drawable.home,"MyHome")
+    object MyProfile: NavigationItem("myProfile", R.drawable.info,"MyProfile")
+    object Settings: NavigationItem("settings", R.drawable.sigin,"Settings")
+
+}
+
+
+
