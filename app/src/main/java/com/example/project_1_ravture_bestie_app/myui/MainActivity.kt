@@ -34,18 +34,23 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             Project_1_Ravture_Bestie_AppTheme( ) {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier
-                        .background(colorResource(id = R.color.purple_500))
-                ) {
-                    MainScreen()
+
+                    // A surface container using the 'background' color from the theme
+                    
+                    Surface(
+                        modifier = Modifier
+                            .background(colorResource(id = R.color.purple_200))
+                    ) {
+                        MainScreen()
+                    }
                 }
+
             }
 
         }
     }
-}
+
+
 @Composable
 fun MainScreen(){
     val navController= rememberNavController()
