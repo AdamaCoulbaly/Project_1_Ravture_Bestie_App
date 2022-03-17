@@ -33,13 +33,11 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Project_1_Ravture_Bestie_AppTheme {
+            Project_1_Ravture_Bestie_AppTheme( ) {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier
-                        .fillMaxSize()
-                        .background(colorResource(id = R.color.BestiePrimaryBackground)),
-                    //color = MaterialTheme.colors.onPrimary
+                        .background(colorResource(id = R.color.purple_500))
                 ) {
                     MainScreen()
                 }
@@ -102,7 +100,7 @@ fun MyNavigation(navController: NavHostController) {
 @Composable
 fun TopBar(){
     Box( modifier = Modifier
-        .background(colorResource(id = R.color.BestieSecondaryBackground))
+        .background(colorResource(id = R.color.purple_500))
     ) {
         TopAppBar(
             title={Text(
@@ -132,7 +130,7 @@ fun BottomNavigationBar(navController: NavController) {
     )
     BottomNavigation(
         modifier = Modifier
-            .background(colorResource(id = R.color.BestiePrimaryBackground)),
+            .background(colorResource(id = R.color.purple_200)),
             contentColor = Color.White
     ) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()

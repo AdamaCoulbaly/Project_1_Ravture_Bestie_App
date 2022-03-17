@@ -43,7 +43,7 @@ fun MyMainScreen(){
     Scaffold(
         scaffoldState=scaffoldState,
         topBar={TopBar(scope=scope,scaffoldState=scaffoldState)},
-        drawerBackgroundColor= colorResource(id = R.color.BestiePrimaryBackground),
+        drawerBackgroundColor= colorResource(id = R.color.purple_500),
         drawerContent = {
                 MyDrawer(scope=scope, scaffoldState=scaffoldState, navController=navController)
         },
@@ -73,7 +73,7 @@ fun TopBar(scope: CoroutineScope, scaffoldState: ScaffoldState){
                 Icon(Icons.Filled.Menu, "")
             }
         },
-        backgroundColor = colorResource(id = R.color.BestiePrimaryBackground),
+        backgroundColor = colorResource(id = R.color.purple_500),
         contentColor = Color.White
     )
 }
@@ -95,7 +95,7 @@ fun MyDrawer(scope:CoroutineScope, scaffoldState: ScaffoldState, navController: 
     )
     Column(
         modifier= Modifier
-            .background(colorResource(id = R.color.BestiePrimaryBackground))
+            .background(colorResource(id = R.color.purple_500))
     ){
         Image(painter = painterResource(id = R.drawable.smilling), contentDescription = null,
             modifier= Modifier
@@ -154,7 +154,7 @@ fun myDrawerPreview() {
 
 @Composable
 fun MyDrawerItem(item: NavigationItem, selected: Boolean, onItemClick: (NavigationItem) -> Unit) {
-    val background = if (selected) R.color.BestiePrimaryBackground else android.R.color.transparent
+    val background = if (selected) R.color.purple_200 else android.R.color.transparent
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier

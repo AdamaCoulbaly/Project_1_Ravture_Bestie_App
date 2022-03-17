@@ -2,8 +2,8 @@ package com.example.project_1_ravture_bestie_app.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple200 = Color(0xFFBB86FC)
-val Purple500 = Color(0xFF6200EE)
-val Purple700 = Color(0xFF3700B3)
-val Teal200 = Color(0xFF03DAC5)
+val primaryColor200 = Color(0xFF7b1fa2)
+val primaryLightColor500 = Color(0xFFae52d4)
+val primaryDarkColor700 = Color(0xFF4a0072)
+val primaryTextColor200 = Color(0xFFffffff)
 val BestiePrimaryDark = Color(0xFFc30000)

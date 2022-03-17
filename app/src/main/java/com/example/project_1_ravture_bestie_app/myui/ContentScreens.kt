@@ -1,5 +1,6 @@
 package com.example.project_1_ravture_bestie_app.myui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -8,16 +9,13 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -31,6 +29,7 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.project_1_ravture_bestie_app.R
+import com.example.project_1_ravture_bestie_app.afterloginui.AfterLoginPage
 import com.example.project_1_ravture_bestie_app.ui.theme.Project_1_Ravture_Bestie_AppTheme
 
 class ContentScreens : ComponentActivity() {
@@ -83,6 +82,7 @@ fun HomeScreenPreview(){
 
 @Composable
 fun InfoScreen(){
+    val context = LocalContext.current
     val FirstName = remember{ mutableStateOf("")}
     val LastName = remember{ mutableStateOf("")}
     val EmailAdrres = remember{ mutableStateOf("")}
@@ -91,7 +91,7 @@ fun InfoScreen(){
     Column(
         modifier= Modifier
             .fillMaxSize()
-            .background(colorResource(id = R.color.BestieSecondaryBackground))
+            .background(colorResource(id = R.color.purple_200))
             .wrapContentSize(Alignment.Center)
     ){
         Text(
@@ -128,17 +128,16 @@ fun InfoScreen(){
                 singleLine = true,
                 modifier = Modifier.fillMaxWidth(0.8f))
             Spacer(modifier = Modifier.padding(10.dp))
-            Button(onClick = {},
+            Button(onClick = {context.startActivity(Intent(context, AfterLoginPage::class.java)) },
                 colors = ButtonDefaults.buttonColors(
-                    backgroundColor = Color.White,
                     contentColor = Color.Red),
                 modifier = Modifier
                     .fillMaxWidth(0.8f)
                     .height(50.dp)
-                    .background(Color.Black)
+                    .background(colorResource(id = R.color.purple_200))
 
             ){
-                Text(text="Submit", color = Color.Black, style = TextStyle(fontWeight = FontWeight.Bold, letterSpacing = TextUnit.Unspecified),
+                Text(text="Submit", color = Color.White, style = TextStyle(fontWeight = FontWeight.Bold, letterSpacing = TextUnit.Unspecified),
                     fontSize = TextUnit.Unspecified)
             }
         }
@@ -196,7 +195,7 @@ fun SignInScreen(){
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(colorResource(id = R.color.BestieSecondaryBackground))
+            .background(colorResource(id = R.color.purple_200))
             .wrapContentSize(Alignment.Center)
     ){
         Text(
@@ -243,21 +242,19 @@ fun SignInScreen(){
             var status by rememberSaveable{mutableStateOf("")}
             Button(onClick = {status=LoginCheck(emailAddress, Password)},
                 colors = ButtonDefaults.buttonColors(
-                    backgroundColor = Color.White,
                     contentColor = Color.Red),
                 modifier = Modifier
                     .fillMaxWidth(0.8f)
                     .height(50.dp)
-                    .background(colorResource(id = R.color.BestieSecondaryBackground))
+                    .background(colorResource(id = R.color.purple_200))
             ){  //Text(text = "$status")
-                Text(text="Login", color = Color.Black, style = TextStyle(fontWeight = FontWeight.Bold, letterSpacing = TextUnit.Unspecified),
+                Text(text="Login", color = Color.White, style = TextStyle(fontWeight = FontWeight.Bold, letterSpacing = TextUnit.Unspecified),
                    fontSize = TextUnit.Unspecified)
             }
             Spacer(modifier = Modifier.padding(20.dp))
             Text(text="$status", color = Color.Red, style = TextStyle(fontWeight = FontWeight.Bold, letterSpacing = TextUnit.Unspecified),
                 fontSize = TextUnit.Companion.Unspecified,modifier = Modifier.clickable (onClick = {} ))
             Spacer(modifier = Modifier.padding(20.dp))
-
 
         }
     }
@@ -284,7 +281,7 @@ fun SignUpScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(colorResource(id = R.color.BestieSecondaryBackground))
+            .background(colorResource(id = R.color.purple_200))
             .wrapContentSize(Alignment.Center)
     ) {
         Text(
@@ -361,14 +358,13 @@ fun SignUpScreen() {
             var regStatus by rememberSaveable{ mutableStateOf("")}
             Button(onClick = {regStatus= SignUpSave(firstName.value,lastName.value,Email.value,password.value,confirmPassword.value)},
                 colors = ButtonDefaults.buttonColors(
-                    backgroundColor = Color.White,
                     contentColor = Color.White),
                 modifier = Modifier
                     .fillMaxWidth(0.8f)
                     .height(50.dp)
-                    .background(Color.Black)
+                    .background(colorResource(id = R.color.purple_200))
             ){
-                Text(text="Sign Up", color = Color.Black, style = TextStyle(fontWeight = FontWeight.Bold, letterSpacing = TextUnit.Unspecified),
+                Text(text="Sign Up", color = Color.White, style = TextStyle(fontWeight = FontWeight.Bold, letterSpacing = TextUnit.Unspecified),
                     fontSize = TextUnit.Companion.Unspecified)
             }
             Spacer(modifier = Modifier.padding(20.dp))
