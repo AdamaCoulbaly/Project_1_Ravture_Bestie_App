@@ -23,6 +23,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.Navigation
 import androidx.navigation.compose.*
 import com.example.project_1_ravture_bestie_app.R
+import com.example.project_1_ravture_bestie_app.model.NavigationDrawerItem
 import com.example.project_1_ravture_bestie_app.model.NavigationItem
 import com.example.project_1_ravture_bestie_app.ui.theme.Project_1_Ravture_Bestie_AppTheme
 
@@ -77,6 +78,21 @@ fun Navigation(navController: NavHostController){
         }
         composable(NavigationItem.SignIn.route){
             SignInScreen()
+        }
+    }
+}
+
+@Composable
+fun MyNavigation(navController: NavHostController) {
+    NavHost(navController, startDestination = NavigationDrawerItem.MyHome.route) {
+        composable(NavigationDrawerItem.MyHome.route) {
+            MyHomeScreen()
+        }
+        composable(NavigationDrawerItem.MyProfile.route) {
+            MyProfileScreen()
+        }
+        composable(NavigationDrawerItem.Settings.route) {
+            SettingsScreen()
         }
     }
 }
