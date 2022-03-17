@@ -1,4 +1,4 @@
-package com.example.project_1_ravture_bestie_app
+package com.example.project_1_ravture_bestie_app.myui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -22,6 +22,8 @@ import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.Navigation
 import androidx.navigation.compose.*
+import com.example.project_1_ravture_bestie_app.R
+import com.example.project_1_ravture_bestie_app.model.NavigationItem
 import com.example.project_1_ravture_bestie_app.ui.theme.Project_1_Ravture_Bestie_AppTheme
 
 class MainActivity : ComponentActivity() {

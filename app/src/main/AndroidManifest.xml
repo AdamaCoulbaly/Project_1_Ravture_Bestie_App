@@ -10,12 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project_1_Ravture_Bestie_App">
         <activity
-            android:name=".ContentScreens"
+            android:name=".myui.ContentScreens"
             android:exported="false"
             android:label="@string/title_activity_content_screens"
             android:theme="@style/Theme.Project_1_Ravture_Bestie_App" />
         <activity
-            android:name=".MainActivity"
+            android:name=".myui.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Project_1_Ravture_Bestie_App">
