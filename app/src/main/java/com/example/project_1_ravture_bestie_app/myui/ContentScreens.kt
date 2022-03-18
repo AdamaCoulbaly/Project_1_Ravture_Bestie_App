@@ -128,7 +128,7 @@ fun InfoScreen(){
                     fontSize = TextUnit.Unspecified)},
                 singleLine = true,
                 modifier = Modifier.fillMaxWidth(0.8f))
-            Spacer(modifier = Modifier.padding(10.dp))
+            Spacer(modifier = Modifier.padding(2.dp))
             Button(onClick = {Toast.makeText(context,"We Received your message....", Toast.LENGTH_LONG).show()},
                 colors = ButtonDefaults.buttonColors(
                     contentColor = Color.Red),

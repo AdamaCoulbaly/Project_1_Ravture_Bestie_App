@@ -21,6 +21,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -37,7 +38,6 @@ class AfterLoginMainMenu : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    BestieTopBar()
                     MenuButtons()
                 }
             }
@@ -45,21 +45,6 @@ class AfterLoginMainMenu : ComponentActivity() {
     }
 }
 
-@Composable
-fun BestieTopBar(){
-    Box( modifier = Modifier
-        .background(colorResource(id = R.color.purple_500))
-    ) {
-        TopAppBar(
-            title={Text(
-                text="BESTIE -MAIN MENU-", fontWeight = FontWeight.Bold,
-                color = Color.White,
-                fontSize = 25.sp)
-            },
-        )
-    }
-
-}
 
 @Composable
 fun MenuButtons() {
@@ -67,9 +52,13 @@ fun MenuButtons() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(colorResource(id = R.color.purple_200))
+            .background(colorResource(id = R.color.purple_200)),
+
+
             //.wrapContentSize(Alignment.Center)
-    ) {
+    ) {Text(text="BESTIE MAIN PAGE", fontWeight = FontWeight.Bold,
+        color = Color.White,
+        fontSize = 25.sp)
         Row(
             horizontalArrangement = Arrangement.SpaceBetween,
             modifier = Modifier.fillMaxWidth().padding(8.dp)
@@ -111,6 +100,23 @@ fun MenuButtons() {
                 )
 
                 Text(text = "Favorites", Modifier.padding(start = 10.dp))
+            }
+        }
+
+        Card(
+            elevation = 2.dp
+        ){
+            Image(painter= painterResource(id = R.drawable.backgroung), contentDescription = null)
+            Column(modifier=Modifier
+                .padding(2.dp)){
+                Text(
+                    text = "Welcome!",
+                    fontWeight = FontWeight.Bold,
+                    color = Color.White,
+                    modifier = Modifier.align(Alignment.CenterHorizontally),
+                    textAlign = TextAlign.Center,
+                    fontSize = 25.sp
+                )
             }
         }
     }
