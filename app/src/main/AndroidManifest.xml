@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project_1_Ravture_Bestie_App">
         <activity
+            android:name=".myui.JohnMain"
+            android:exported="false"
+            android:label="@string/title_activity_john_main"
+            android:theme="@style/Theme.Project_1_Ravture_Bestie_App" />
+        <activity
             android:name=".myui.AfterLoginMainMenu"
             android:exported="false"
             android:label="@string/title_activity_after_login_main_menu"

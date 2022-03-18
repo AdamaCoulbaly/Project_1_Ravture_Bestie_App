@@ -67,7 +67,7 @@ fun MenuButtons() {
             modifier = Modifier.fillMaxWidth().padding(8.dp)
         ) {
             Button(
-                onClick = { },
+                onClick = {{context.startActivity(Intent(context,JohnMain::class.java)) } },
             ) {
                 Image(
                     painterResource(R.drawable.favorites),
@@ -79,7 +79,7 @@ fun MenuButtons() {
                 Text(text = "Favorites", Modifier.padding(start = 10.dp))
             }
             Button(
-                onClick = { /*TODO*/ },
+                onClick = {context.startActivity(Intent(context,MainActivityJacob::class.java))},
 
             ) {
                 Image(
@@ -92,7 +92,7 @@ fun MenuButtons() {
                 Text(text = "Events", Modifier.padding(start = 10.dp))
             }
             Button(
-                onClick = {context.startActivity(Intent(context,MainActivityJacob::class.java))},
+                onClick = {Toast.makeText(context,"Help on it way....",Toast.LENGTH_LONG).show()},
 
             ) {
                 Image(
