@@ -3,4 +3,7 @@
     <string name="title_activity_content_screens">ContentScreens</string>
     <string name="drawer">Menu</string>
     <string name="title_activity_after_login_page">AfterLoginPage</string>
+    <string name="title_activity_after_login_content_screen">AfterLoginContentScreen</string>
+    <string name="title_activity_after_login_screens">AfterLoginScreens</string>
+    <string name="title_activity_after_login_main_screen">AfterLoginMainScreen</string>
 </resources>

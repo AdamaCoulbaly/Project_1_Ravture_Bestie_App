@@ -10,6 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project_1_Ravture_Bestie_App">
         <activity
+            android:name=".myui.AfterLoginMainScreen"
+            android:exported="false"
+            android:label="@string/title_activity_after_login_main_screen"
+            android:theme="@style/Theme.Project_1_Ravture_Bestie_App" />
+        <activity
+            android:name=".myui.AfterLoginScreens"
+            android:exported="false"
+            android:label="@string/title_activity_after_login_screens"
+            android:theme="@style/Theme.Project_1_Ravture_Bestie_App" />
+        <activity
+            android:name=".myui.AfterLoginContentScreen"
+            android:exported="false"
+            android:label="@string/title_activity_after_login_content_screen"
+            android:theme="@style/Theme.Project_1_Ravture_Bestie_App" />
+        <activity
             android:name=".afterloginui.AfterLoginPage"
             android:exported="false"
             android:label="@string/title_activity_after_login_page"
