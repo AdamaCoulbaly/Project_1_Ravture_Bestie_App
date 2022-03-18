@@ -52,6 +52,8 @@ fun MenuButtons() {
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .fillMaxWidth()
+            .fillMaxHeight()
             .background(colorResource(id = R.color.purple_200)),
 
 
@@ -104,10 +106,12 @@ fun MenuButtons() {
         }
 
         Card(
-            elevation = 2.dp
+            elevation = 10.dp,
+            modifier = Modifier.fillMaxWidth().padding(0.dp)
+                .background(colorResource(id = R.color.purple_200))
         ){
             Image(painter= painterResource(id = R.drawable.backgroung), contentDescription = null)
-            Column(modifier=Modifier
+            Column(modifier=Modifier.fillMaxSize().fillMaxWidth()
                 .padding(2.dp)){
                 Text(
                     text = "Welcome!",
