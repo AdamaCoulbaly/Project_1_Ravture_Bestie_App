@@ -1,5 +1,6 @@
 package com.example.project_1_ravture_bestie_app.myui
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -48,7 +49,7 @@ class AfterLoginMainMenu : ComponentActivity() {
 
 @Composable
 fun MenuButtons() {
-
+    val context = LocalContext.current
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -66,11 +67,11 @@ fun MenuButtons() {
             modifier = Modifier.fillMaxWidth().padding(8.dp)
         ) {
             Button(
-                onClick = { /*TODO*/ },
+                onClick = { },
             ) {
                 Image(
                     painterResource(R.drawable.favorites),
-                    contentDescription = "Cart button icon",
+                    contentDescription = "Favorites button icon",
                     modifier = Modifier.size(13.dp)
                         .background(colorResource(id = R.color.purple_700))
                 )
@@ -83,25 +84,25 @@ fun MenuButtons() {
             ) {
                 Image(
                     painterResource(R.drawable.event),
-                    contentDescription = "Cart button icon",
+                    contentDescription = "Events button icon",
                     modifier = Modifier.size(13.dp)
                         .background(colorResource(id = R.color.purple_700))
                 )
 
-                Text(text = "Favorites", Modifier.padding(start = 10.dp))
+                Text(text = "Events", Modifier.padding(start = 10.dp))
             }
             Button(
-                onClick = { /*TODO*/ },
+                onClick = {context.startActivity(Intent(context,MainActivityJacob::class.java))},
 
             ) {
                 Image(
                     painterResource(R.drawable.help),
-                    contentDescription = "Cart button icon",
+                    contentDescription = "Help button icon",
                     modifier = Modifier.size(13.dp)
                         .background(colorResource(id = R.color.purple_700))
                 )
 
-                Text(text = "Favorites", Modifier.padding(start = 10.dp))
+                Text(text = "Help", Modifier.padding(start = 10.dp))
             }
         }
 
