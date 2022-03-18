@@ -154,7 +154,7 @@ fun InfoScreenPreview(){
 //Login Control Method
 fun LoginCheck(userEmail:String,userPassword:String):String{
     var status:String=""
-    if(userEmail.equals("ada@ada.com")&&userPassword.equals("adama")){
+    if(userEmail.equals("admin@gmail.com")&&userPassword.equals("admin1")){
         status="Login Successful"
     }else{
         status="Login UnSuccessful"
