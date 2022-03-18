@@ -2,6 +2,7 @@ package com.example.project_1_ravture_bestie_app.myui
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -128,7 +129,7 @@ fun InfoScreen(){
                 singleLine = true,
                 modifier = Modifier.fillMaxWidth(0.8f))
             Spacer(modifier = Modifier.padding(10.dp))
-            Button(onClick = {context.startActivity(Intent(context, AfterLoginPage::class.java)) },
+            Button(onClick = {Toast.makeText(context,"We Received your message....", Toast.LENGTH_LONG).show()},
                 colors = ButtonDefaults.buttonColors(
                     contentColor = Color.Red),
                 modifier = Modifier
@@ -255,6 +256,16 @@ fun SignInScreen(){
             Text(text="$status", color = Color.Red, style = TextStyle(fontWeight = FontWeight.Bold, letterSpacing = TextUnit.Unspecified),
                 fontSize = TextUnit.Companion.Unspecified,modifier = Modifier.clickable (onClick = {} ))
             Spacer(modifier = Modifier.padding(20.dp))
+            if("$status".equals("Login Successful")){
+                Text(text="Move to the main page",
+                    modifier = Modifier
+                        .clickable(
+                            onClick =  {context.startActivity(Intent(context,AfterLoginMainMenu::class.java)) }
+                        )
+                )
+            }else{
+                Text(text="")
+            }
 
         }
     }

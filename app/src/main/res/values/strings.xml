@@ -6,4 +6,5 @@
     <string name="title_activity_after_login_content_screen">AfterLoginContentScreen</string>
     <string name="title_activity_after_login_screens">AfterLoginScreens</string>
     <string name="title_activity_after_login_main_screen">AfterLoginMainScreen</string>
+    <string name="title_activity_after_login_main_menu">AfterLoginMainMenu</string>
 </resources>
