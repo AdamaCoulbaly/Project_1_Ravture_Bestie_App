@@ -106,7 +106,7 @@ fun FavoriteMusic(text: String) {
         // shape is used to give the shape to Compose UI elements.
         Button(
             onClick = {
-                Toast.makeText(context, "Thanks for clicking!", Toast.LENGTH_LONG).show()
+               context.startActivity(Intent(context, MusicList::class.java))
             },
             modifier = Modifier
                 .padding(8.dp)
@@ -115,35 +115,12 @@ fun FavoriteMusic(text: String) {
             ) {
             Text("Music")
         }
-    }
-}
-
-@Composable
-fun FavoriteActivity(text: String) {
-    val context = LocalContext.current
-
-    Column (horizontalAlignment = Alignment.CenterHorizontally){
-
-        // shape is used to give the shape to Compose UI elements.
-        Button(
-            onClick = {
-                Toast.makeText(context, "Thanks for clicking!", Toast.LENGTH_LONG).show()
-            },
-            modifier = Modifier
-                .padding(8.dp)
-                .fillMaxWidth(),
-
-            ) {
-            Text("Activity")
-        }
-
         Spacer(modifier = Modifier.height(30.dp))
 
         Image(painter = painterResource(com.example.project_1_ravture_bestie_app.R.drawable.mexrestaurant4), contentDescription = "App logo",
-            modifier= Modifier)
-               // .size(100.dp)
-                //.clip(CircleShape)
-                //.border(1.5.dp, MaterialTheme.colors.secondary, CircleShape))
+            modifier= Modifier
+                .fillMaxWidth())
     }
 }
+
 
