@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.R
@@ -17,8 +18,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -37,13 +40,14 @@ class JohnMain : ComponentActivity() {
             Project_1_Ravture_Bestie_AppTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
+                    modifier = Modifier.fillMaxSize()
+                    .background(colorResource(id = com.example.project_1_ravture_bestie_app.R.color.purple_200))
+
                 ) {
                     // AreaRestaurants(RestaurantMex)
                     Column {
 
-                        SimpleTextComponent("Favorites")
+                        MainBar()
                         Divider(color = androidx.compose.ui.graphics.Color.Gray)
                         FavoriteRestaurants("Restaurants")
                         FavoriteMusic("Music")
@@ -56,25 +60,19 @@ class JohnMain : ComponentActivity() {
 }
 
 @Composable
-fun SimpleTextComponent(text: String) {
-    TopAppBar(title = {
+fun MainBar(){
+    Box( modifier = Modifier
+        .background(colorResource(id = com.example.project_1_ravture_bestie_app.R.color.purple_500))
+    ) {
+        TopAppBar(
+            title={Text(
+                text="FAVORITES", fontWeight = FontWeight.Bold,
+                color = Color.White,
+                fontSize = 25.sp)
+            },
+        )
+    }
 
-        /*           navigationIcon = {
-                       Button(onClick = { /* doSomething() */ }) {
-                           (Icons.Filled.Menu)
-                       }
-                   }*/
-        Text(
-            text = text,
-            style = TextStyle(
-                fontSize = 16.sp,
-                color = Color.Black
-            ),
-            modifier = Modifier
-                .padding(16.dp)
-                .fillMaxWidth()
-        )}
-    )
 }
 
 
@@ -87,7 +85,7 @@ fun FavoriteRestaurants(text: String) {
         // shape is used to give the shape to Compose UI elements.
         Button(
             onClick = {
-               // context.startActivity(Intent(context, RestaurantActivity::class.java))
+                context.startActivity(Intent(context, RestaurantActivity::class.java))
             },
             modifier = Modifier
                 .padding(8.dp)
@@ -141,11 +139,11 @@ fun FavoriteActivity(text: String) {
 
         Spacer(modifier = Modifier.height(30.dp))
 
-        Image(painter = painterResource(com.example.project_1_ravture_bestie_app.R.drawable.bestielogo), contentDescription = "App logo",
-            modifier= Modifier
-                .size(100.dp)
-                .clip(CircleShape)
-                .border(1.5.dp, MaterialTheme.colors.secondary, CircleShape))
+        Image(painter = painterResource(com.example.project_1_ravture_bestie_app.R.drawable.mexrestaurant4), contentDescription = "App logo",
+            modifier= Modifier)
+               // .size(100.dp)
+                //.clip(CircleShape)
+                //.border(1.5.dp, MaterialTheme.colors.secondary, CircleShape))
     }
 }
 

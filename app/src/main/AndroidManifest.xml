@@ -10,6 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project_1_Ravture_Bestie_App">
         <activity
+            android:name=".myui.RestaurantList"
+            android:exported="false"
+            android:label="@string/title_activity_restaurant_list"
+            android:theme="@style/Theme.Project_1_Ravture_Bestie_App" />
+        <activity
+            android:name=".myui.ui.theme.RestaurantActivity"
+            android:exported="false"
+            android:label="@string/title_activity_restaurant"
+            android:theme="@style/Theme.Project_1_Ravture_Bestie_App" />
+        <activity
             android:name=".myui.JohnMain"
             android:exported="false"
             android:label="@string/title_activity_john_main"

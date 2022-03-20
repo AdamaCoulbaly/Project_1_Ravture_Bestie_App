@@ -67,7 +67,7 @@ fun MenuButtons() {
             modifier = Modifier.fillMaxWidth().padding(8.dp)
         ) {
             Button(
-                onClick = {{context.startActivity(Intent(context,JohnMain::class.java)) } },
+                onClick = {context.startActivity(Intent(context,JohnMain::class.java))  },
             ) {
                 Image(
                     painterResource(R.drawable.favorites),

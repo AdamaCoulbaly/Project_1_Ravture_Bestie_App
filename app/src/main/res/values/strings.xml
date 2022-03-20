@@ -8,4 +8,6 @@
     <string name="title_activity_after_login_main_screen">AfterLoginMainScreen</string>
     <string name="title_activity_after_login_main_menu">AfterLoginMainMenu</string>
     <string name="title_activity_john_main">JohnMain</string>
+    <string name="title_activity_restaurant">RestaurantActivity</string>
+    <string name="title_activity_restaurant_list">RestaurantList</string>
 </resources>

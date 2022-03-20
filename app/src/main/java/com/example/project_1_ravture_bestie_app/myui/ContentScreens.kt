@@ -86,7 +86,7 @@ fun InfoScreen(){
     val context = LocalContext.current
     val FirstName = remember{ mutableStateOf("")}
     val LastName = remember{ mutableStateOf("")}
-    val EmailAdrres = remember{ mutableStateOf("")}
+    val EmailAddress = remember{ mutableStateOf("")}
     val Message = remember{ mutableStateOf("")}
 
     Column(
@@ -155,7 +155,7 @@ fun InfoScreenPreview(){
 //Login Control Method
 fun LoginCheck(userEmail:String,userPassword:String):String{
     var status:String=""
-    if(userEmail.equals("admin@gmail.com")&&userPassword.equals("admin1")){
+    if(userEmail.equals("admin@gmail.com") && userPassword.equals("admin1")){
         status="Login Successful"
     }else{
         status="Login UnSuccessful"
