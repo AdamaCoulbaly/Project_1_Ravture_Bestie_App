@@ -61,6 +61,7 @@ fun MusicCard(venue:String, type:String, band:String, image:Int)
                 Text(text = type,
                     style = MaterialTheme.typography.body2,
                     color = MaterialTheme.colors.onSurface,
+                    fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(bottom=4.dp)
 
                     )

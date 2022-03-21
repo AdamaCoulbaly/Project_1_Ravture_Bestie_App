@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project_1_Ravture_Bestie_App">
         <activity
+            android:name=".myui.MusicActivity"
+            android:exported="false"
+            android:label="@string/title_activity_music"
+            android:theme="@style/Theme.Project_1_Ravture_Bestie_App" />
+        <activity
             android:name=".myui.MusicList"
             android:exported="false"
             android:label="@string/title_activity_music_list"

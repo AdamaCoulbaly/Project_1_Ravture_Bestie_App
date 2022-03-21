@@ -39,25 +39,30 @@ class JohnMain : ComponentActivity() {
         setContent {
             Project_1_Ravture_Bestie_AppTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize()
-                    .background(colorResource(id = com.example.project_1_ravture_bestie_app.R.color.purple_200))
 
-                ) {
                     // AreaRestaurants(RestaurantMex)
-                    Column {
+                    Column (
+                        modifier = Modifier.fillMaxSize()
+                                   .background(colorResource(id = com.example.project_1_ravture_bestie_app.R.color.purple_200))
+                    )
+                    {
 
                         MainBar()
                         Divider(color = androidx.compose.ui.graphics.Color.Gray)
                         FavoriteRestaurants("Restaurants")
                         FavoriteMusic("Music")
-                        FavoriteActivity("Activity")
+
+                        Spacer(modifier = Modifier.height(30.dp))
+
+                        Image(painter = painterResource(com.example.project_1_ravture_bestie_app.R.drawable.restaurant1), contentDescription = "App logo",
+                            modifier= Modifier
+                                .fillMaxSize())
                     }
                 }
             }
         }
-    }
 }
+
 
 @Composable
 fun MainBar(){
@@ -106,7 +111,7 @@ fun FavoriteMusic(text: String) {
         // shape is used to give the shape to Compose UI elements.
         Button(
             onClick = {
-               context.startActivity(Intent(context, MusicList::class.java))
+               context.startActivity(Intent(context, MusicActivity::class.java))
             },
             modifier = Modifier
                 .padding(8.dp)
@@ -115,11 +120,7 @@ fun FavoriteMusic(text: String) {
             ) {
             Text("Music")
         }
-        Spacer(modifier = Modifier.height(30.dp))
 
-        Image(painter = painterResource(com.example.project_1_ravture_bestie_app.R.drawable.mexrestaurant4), contentDescription = "App logo",
-            modifier= Modifier
-                .fillMaxWidth())
     }
 }
 
