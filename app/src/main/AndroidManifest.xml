@@ -25,7 +25,7 @@
             android:label="@string/title_activity_restaurant_list"
             android:theme="@style/Theme.Project_1_Ravture_Bestie_App" />
         <activity
-            android:name=".myui.ui.theme.RestaurantActivity"
+            android:name=".myui.RestaurantActivity"
             android:exported="false"
             android:label="@string/title_activity_restaurant"
             android:theme="@style/Theme.Project_1_Ravture_Bestie_App" />
@@ -33,6 +33,21 @@
             android:name=".myui.JohnMain"
             android:exported="false"
             android:label="@string/title_activity_john_main"
+            android:theme="@style/Theme.Project_1_Ravture_Bestie_App" />
+        <activity
+            android:name=".myui.MainActivityJacob"
+            android:exported="false"
+            android:label="MainActivityJacob"
+            android:theme="@style/Theme.Project_1_Ravture_Bestie_App" />
+        <activity
+            android:name=".myui.TstEvnt"
+            android:exported="false"
+            android:label="TstEvnt"
+            android:theme="@style/Theme.Project_1_Ravture_Bestie_App" />
+        <activity
+            android:name=".myui.EventInfo"
+            android:exported="false"
+            android:label="EventInfo"
             android:theme="@style/Theme.Project_1_Ravture_Bestie_App" />
         <activity
             android:name=".myui.AfterLoginMainMenu"

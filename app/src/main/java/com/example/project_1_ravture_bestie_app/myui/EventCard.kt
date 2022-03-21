@@ -34,8 +34,8 @@ fun EventCard(name:String,date:String,description:String,image:Int)
         modifier = Modifier
             .padding(10.dp)
             .fillMaxWidth()
-            .wrapContentHeight().
-            clickable {context.startActivity(Intent(context, EventInfo::class.java)) },
+            .wrapContentHeight()
+            .clickable{context.startActivity(Intent(context, EventInfo::class.java)) },
         shape = MaterialTheme.shapes.medium,
         elevation = 5.dp,
         backgroundColor = MaterialTheme.colors.surface

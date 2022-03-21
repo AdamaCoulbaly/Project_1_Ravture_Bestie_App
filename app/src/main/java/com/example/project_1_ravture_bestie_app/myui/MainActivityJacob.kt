@@ -36,38 +36,12 @@ class MainActivityJacob : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             Project_1_Ravture_Bestie_AppTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize()
-                        .background(colorResource(id = R.color.purple_200))
-                ) {
-                    EventPage("Event Page")
+                AllEvents(Events)
                 }
             }
         }
     }
-}
 
-@Composable
-fun EventPage(text: String) {
-    val context = LocalContext.current
-
-    Column {
-
-        // shape is used to give the shape to Compose UI elements.
-        Button(
-            onClick = {
-                context.startActivity(Intent(context, TstEvnt::class.java))
-            },
-            modifier = Modifier
-                .padding(8.dp)
-                .fillMaxWidth()
-
-        ) {
-            Text("Event Page")
-        }
-    }
-}
 
 
 

@@ -80,7 +80,7 @@ fun MenuButtons() {
                 Text(text = "Favorites", Modifier.padding(start = 10.dp))
             }
             Button(
-                onClick = {context.startActivity(Intent(context,JohnMain::class.java)) },
+                onClick = {context.startActivity(Intent(context,MainActivityJacob::class.java)) },
 
             ) {
                 Image(

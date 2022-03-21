@@ -51,12 +51,16 @@ class JohnMain : ComponentActivity() {
                         Divider(color = androidx.compose.ui.graphics.Color.Gray)
                         FavoriteRestaurants("Restaurants")
                         FavoriteMusic("Music")
+<<<<<<< Updated upstream
 
                         Spacer(modifier = Modifier.height(30.dp))
 
                         Image(painter = painterResource(com.example.project_1_ravture_bestie_app.R.drawable.restaurant1), contentDescription = "App logo",
                             modifier= Modifier
                                 .fillMaxSize())
+=======
+                        
+>>>>>>> Stashed changes
                     }
                 }
             }

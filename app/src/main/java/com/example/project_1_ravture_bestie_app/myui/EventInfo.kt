@@ -17,56 +17,48 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.project_1_ravture_bestie_app.R
 
 class EventInfo : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
 
-            SimpleTextFieldComponent()
-            ClickableCardComponent2()
+            ClickableCardComponent()
         }
     }
 
-    //add context
+
     @Preview
     @Composable
-    fun SimpleTextFieldComponent() {
-        val context = LocalContext.current
-        // Surface as the name suggests is used to have some UI elements over it. You can provide some
-        // color, contentColor, shape, border, elevation, etc to a surface. If no contentColor is passed
-        // then the surface will try to match its color with the background color.
-        Surface(color = Color.LightGray, modifier = Modifier.padding(16.dp)) {
-            var text by remember { mutableStateOf(TextFieldValue("Search")) }
-            // BaseTextField is a composable that is used to take input. It is similar to EditText.
-            // onValueChange will be called when there is a change in content of text field.
-            TextField(//was originally BaseTextField. This whole function is a place holder for a search bar that will replace it anyways.
-                value = text,
-                modifier = Modifier
-                    .padding(16.dp)
-                    .fillMaxWidth(),
-                onValueChange = {
-                    text = it
-                }
-            )
-        }
-    }
-    @Preview
-    @Composable
-    fun ClickableCardComponent2() {
+    fun ClickableCardComponent() {
         Column() {
-
-
             val context = LocalContext.current
+            Surface(color = Color.LightGray, modifier = Modifier.padding(16.dp)) {
+                var text by remember { mutableStateOf(TextFieldValue("Search")) }
+                // BaseTextField is a composable that is used to take input. It is similar to EditText.
+                // onValueChange will be called when there is a change in content of text field.
+                TextField(//was originally BaseTextField. This whole function is a place holder for a search bar that will replace it anyways.
+                    value = text,
+                    modifier = Modifier
+                        .padding(16.dp)
+                        .fillMaxWidth(),
+                    onValueChange = {
+                        text = it
+                    }
+                )
+            }
+
             Card(
                 shape = RoundedCornerShape(8.dp),
-                backgroundColor = Color(0xFFFFA867.toInt()),
+                backgroundColor =(colorResource(id = R.color.purple_700)) ,
                 modifier = Modifier
                     .padding(16.dp)
                     .fillMaxWidth()
@@ -77,7 +69,7 @@ class EventInfo : ComponentActivity() {
                     })
             ) {
                 Text(
-                    text = "Your saved event with event info",
+                    text = "Your saved event",
                     textAlign = TextAlign.Center,
                     style = TextStyle(
                         fontSize = 16.sp
@@ -87,7 +79,7 @@ class EventInfo : ComponentActivity() {
             }
             Card(
                 shape = RoundedCornerShape(8.dp),
-                backgroundColor = Color(0xFFFFA867.toInt()),
+                backgroundColor = (colorResource(id = R.color.purple_700)),
                 modifier = Modifier
                     .padding(16.dp)
                     .fillMaxWidth()
@@ -98,7 +90,7 @@ class EventInfo : ComponentActivity() {
                     })
             ) {
                 Text(
-                    text = "Your saved event with event info",
+                    text = "Your saved event",
                     textAlign = TextAlign.Center,
                     style = TextStyle(
                         fontSize = 16.sp
@@ -108,7 +100,7 @@ class EventInfo : ComponentActivity() {
             }
             Card(
                 shape = RoundedCornerShape(8.dp),
-                backgroundColor = Color(0xFFFFA867.toInt()),
+                backgroundColor = (colorResource(id = R.color.purple_700)),
                 modifier = Modifier
                     .padding(16.dp)
                     .fillMaxWidth()
@@ -119,7 +111,7 @@ class EventInfo : ComponentActivity() {
                     })
             ) {
                 Text(
-                    text = "Your saved event with event info",
+                    text = "Your saved event",
                     textAlign = TextAlign.Center,
                     style = TextStyle(
                         fontSize = 16.sp
@@ -129,7 +121,7 @@ class EventInfo : ComponentActivity() {
             }
             Card(
                 shape = RoundedCornerShape(8.dp),
-                backgroundColor = Color(0xFFFFA867.toInt()),
+                backgroundColor = (colorResource(id = R.color.purple_700)),
                 modifier = Modifier
                     .padding(16.dp)
                     .fillMaxWidth()
@@ -140,7 +132,7 @@ class EventInfo : ComponentActivity() {
                     })
             ) {
                 Text(
-                    text = "Your saved event with event info",
+                    text = "Your saved event",
                     textAlign = TextAlign.Center,
                     style = TextStyle(
                         fontSize = 16.sp
@@ -150,7 +142,7 @@ class EventInfo : ComponentActivity() {
             }
             Card(
                 shape = RoundedCornerShape(8.dp),
-                backgroundColor = Color(0xFFFFA867.toInt()),
+                backgroundColor = (colorResource(id = R.color.purple_700)),
                 modifier = Modifier
                     .padding(16.dp)
                     .fillMaxWidth()
@@ -161,7 +153,7 @@ class EventInfo : ComponentActivity() {
                     })
             ) {
                 Text(
-                    text = "Your saved event with event info",
+                    text = "Your saved event",
                     textAlign = TextAlign.Center,
                     style = TextStyle(
                         fontSize = 16.sp
@@ -171,7 +163,7 @@ class EventInfo : ComponentActivity() {
             }
             Card(
                 shape = RoundedCornerShape(8.dp),
-                backgroundColor = Color(0xFFFFA867.toInt()),
+                backgroundColor = (colorResource(id = R.color.purple_700)),
                 modifier = Modifier
                     .padding(16.dp)
                     .fillMaxWidth()
@@ -182,7 +174,7 @@ class EventInfo : ComponentActivity() {
                     })
             ) {
                 Text(
-                    text = "Your saved event with event info",
+                    text = "Your saved event",
                     textAlign = TextAlign.Center,
                     style = TextStyle(
                         fontSize = 16.sp
@@ -192,7 +184,7 @@ class EventInfo : ComponentActivity() {
             }
             Card(
                 shape = RoundedCornerShape(8.dp),
-                backgroundColor = Color(0xFFFFA867.toInt()),
+                backgroundColor = (colorResource(id = R.color.purple_700)),
                 modifier = Modifier
                     .padding(16.dp)
                     .fillMaxWidth()
@@ -203,7 +195,7 @@ class EventInfo : ComponentActivity() {
                     })
             ) {
                 Text(
-                    text = "Your saved event with event info",
+                    text = "Your saved event",
                     textAlign = TextAlign.Center,
                     style = TextStyle(
                         fontSize = 16.sp
