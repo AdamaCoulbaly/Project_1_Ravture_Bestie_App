@@ -26,6 +26,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.project1.SuggestedEvents
 import com.example.project_1_ravture_bestie_app.R
 import com.example.project_1_ravture_bestie_app.myui.ui.theme.ui.theme.Project_1_Ravture_Bestie_AppTheme
 
@@ -79,7 +80,7 @@ fun MenuButtons() {
                 Text(text = "Favorites", Modifier.padding(start = 10.dp))
             }
             Button(
-                onClick = {context.startActivity(Intent(context,MainActivityJacob::class.java))},
+                onClick = {context.startActivity(Intent(context,JohnMain::class.java)) },
 
             ) {
                 Image(

@@ -1,6 +1,7 @@
 package com.example.project1
 
 import android.content.Context
+import android.content.Intent
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -17,6 +18,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.project_1_ravture_bestie_app.myui.EventInfo
+import com.example.project_1_ravture_bestie_app.myui.JohnMain
 
 
 fun cardViewCallBack(context: Context, name: String) {
@@ -32,7 +35,7 @@ fun EventCard(name:String,date:String,description:String,image:Int)
             .padding(10.dp)
             .fillMaxWidth()
             .wrapContentHeight().
-            clickable { cardViewCallBack(context,name+date) },
+            clickable {context.startActivity(Intent(context, EventInfo::class.java)) },
         shape = MaterialTheme.shapes.medium,
         elevation = 5.dp,
         backgroundColor = MaterialTheme.colors.surface
